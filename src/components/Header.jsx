@@ -21,7 +21,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-black/5 bg-cream/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
         <Link to="/" className="flex items-center">
-          <img src="./logo.png" alt="Ardini" className="h-12 w-auto" />
+          <img src="./logo.png" alt="Ardini" className="h-16 w-auto lg:h-20" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -40,6 +40,15 @@ export default function Header() {
               {cat.name}
             </button>
           ))}
+          <a
+            href="https://www.nalburdan.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full bg-coral px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-coral-light"
+          >
+            Satış Sitemiz
+            <span aria-hidden="true">↗</span>
+          </a>
         </nav>
 
         <button
@@ -71,6 +80,15 @@ export default function Header() {
               {cat.name}
             </button>
           ))}
+          <a
+            href="https://www.nalburdan.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-coral px-4 py-2 text-sm font-semibold text-white"
+          >
+            Satış Sitemiz
+            <span aria-hidden="true">↗</span>
+          </a>
         </nav>
       )}
     </header>

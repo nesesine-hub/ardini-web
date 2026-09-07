@@ -43,6 +43,17 @@ export function subscribeToCategories(callback) {
   });
 }
 
+export function subscribeToProduct(id, callback) {
+  if (!isFirebaseConfigured) {
+    callback(null);
+    return () => {};
+  }
+  const productRef = doc(db, "products", id);
+  return onSnapshot(productRef, (docSnap) => {
+    callback(docSnap.exists() ? { id: docSnap.id, ...docSnap.data() } : null);
+  });
+}
+
 export async function createProduct(product) {
   return addDoc(productsCol, product);
 }

@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import { categoryBadgeClass } from "../utils/categoryColors";
 
 export default function ProductCard({ product }) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-cream-dark">
+      <Link to={`/urun/${product.id}`} className="relative aspect-[4/5] w-full overflow-hidden bg-cream-dark">
         {product.isBestseller && (
           <span className="absolute left-3 top-3 z-10 rounded-full bg-coral px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white shadow-sm">
             Çok Satan
@@ -23,7 +24,7 @@ export default function ProductCard({ product }) {
             </span>
           </div>
         )}
-      </div>
+      </Link>
 
       <div className="flex flex-1 flex-col p-6">
         <span
@@ -31,21 +32,21 @@ export default function ProductCard({ product }) {
         >
           {product.category}
         </span>
-        <h3 className="mt-2 text-lg font-semibold text-charcoal">
-          {product.name}
-        </h3>
+        <Link to={`/urun/${product.id}`}>
+          <h3 className="mt-2 text-lg font-semibold text-charcoal transition-colors hover:text-emerald">
+            {product.name}
+          </h3>
+        </Link>
         <p className="mt-2 line-clamp-2 flex-1 text-sm text-gray-500">
           {product.description}
         </p>
 
-        <a
-          href={product.redirectUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          to={`/urun/${product.id}`}
           className="mt-6 inline-flex items-center justify-center rounded-full bg-navy px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-emerald hover:shadow-lg hover:shadow-emerald/30"
         >
-          Satın Al / Detaylı İncele
-        </a>
+          Detayları Gör
+        </Link>
       </div>
     </article>
   );
