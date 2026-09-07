@@ -24,7 +24,7 @@ export default function HeroCarousel({ images }) {
           key={image.src}
           src={image.src}
           alt={image.alt}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+          className={`absolute inset-0 h-full w-full object-contain p-8 transition-opacity duration-1000 ${
             index === activeIndex ? "opacity-100" : "opacity-0"
           }`}
         />

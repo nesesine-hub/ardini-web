@@ -19,7 +19,7 @@ export default function ImageGallery({ images, alt }) {
         <img
           src={images[activeIndex]}
           alt={alt}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain p-6"
         />
       </div>
 
@@ -33,7 +33,7 @@ export default function ImageGallery({ images, alt }) {
                 index === activeIndex ? "ring-emerald" : "ring-transparent opacity-70 hover:opacity-100"
               }`}
             >
-              <img src={src} alt={`${alt} - görsel ${index + 1}`} className="h-full w-full object-cover" />
+              <img src={src} alt={`${alt} - görsel ${index + 1}`} className="h-full w-full bg-cream-dark object-contain p-1" />
             </button>
           ))}
         </div>
