@@ -41,6 +41,15 @@ export default function Header() {
             </button>
           ))}
           <a
+            href="https://linktr.ee/bayarltd"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-black/10 px-4 py-2 text-sm font-semibold text-charcoal transition-colors hover:bg-cream-dark"
+          >
+            Tüm Bağlantılarımız
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a
             href="https://www.nalburdan.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -80,6 +89,15 @@ export default function Header() {
               {cat.name}
             </button>
           ))}
+          <a
+            href="https://linktr.ee/bayarltd"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full border border-black/10 px-4 py-2 text-sm font-semibold text-charcoal"
+          >
+            Tüm Bağlantılarımız
+            <span aria-hidden="true">↗</span>
+          </a>
           <a
             href="https://www.nalburdan.com"
             target="_blank"

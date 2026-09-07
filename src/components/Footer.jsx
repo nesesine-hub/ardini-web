@@ -49,7 +49,7 @@ export default function Footer() {
             href="https://www.instagram.com/kerem.cdr/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-gray-400 transition-colors hover:text-charcoal"
+            className="text-xs font-bold text-gray-400 transition-colors hover:text-charcoal"
           >
             Web Tasarım: @kerembayar
           </a>
