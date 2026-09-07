@@ -33,9 +33,19 @@ export default function Footer() {
           <span className="hidden sm:inline">·</span>
           <span>Bayar Plaza, Şeyh Sinan, İbrişim Sk., 59850 Çorlu/Tekirdağ</span>
         </div>
-        <p className="mt-6 text-xs text-gray-400">
-          © {new Date().getFullYear()} Ardini — Bayar Ticari Yatırımlar Yapı Turizm Kimya San. ve Tic. Ltd. Şti. Tüm hakları saklıdır.
-        </p>
+        <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-gray-400">
+            © {new Date().getFullYear()} Ardini — Bayar Ticari Yatırımlar Yapı Turizm Kimya San. ve Tic. Ltd. Şti. Tüm hakları saklıdır.
+          </p>
+          <a
+            href="https://www.instagram.com/kerem.cdr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-gray-400 transition-colors hover:text-charcoal"
+          >
+            Web Tasarım: @kerembayar
+          </a>
+        </div>
       </div>
     </footer>
   );

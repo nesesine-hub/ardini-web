@@ -3,18 +3,25 @@ import { Link, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ImageGallery from "../components/ImageGallery";
+import ProductCard from "../components/ProductCard";
 import { categoryBadgeClass } from "../utils/categoryColors";
-import { subscribeToProduct } from "../firebase/products";
+import { subscribeToProduct, subscribeToProducts } from "../firebase/products";
 
 export default function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(undefined);
+  const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
     setProduct(undefined);
     const unsubscribe = subscribeToProduct(id, setProduct);
     return unsubscribe;
   }, [id]);
+
+  useEffect(() => {
+    const unsubscribe = subscribeToProducts(setAllProducts);
+    return unsubscribe;
+  }, []);
 
   if (product === undefined) {
     return (
@@ -45,6 +52,16 @@ export default function ProductDetail() {
   }
 
   const images = product.images?.length > 0 ? product.images : product.imageUrl ? [product.imageUrl] : [];
+
+  const relatedProducts = allProducts
+    .filter((p) => p.id !== product.id && p.category === product.category)
+    .sort((a, b) => {
+      const aSameSeries = a.series === product.series && product.series !== "Diğer" ? 1 : 0;
+      const bSameSeries = b.series === product.series && product.series !== "Diğer" ? 1 : 0;
+      if (bSameSeries !== aSameSeries) return bSameSeries - aSameSeries;
+      return (b.salesCount || 0) - (a.salesCount || 0);
+    })
+    .slice(0, 4);
 
   return (
     <div className="flex min-h-screen flex-col bg-cream">
@@ -99,6 +116,19 @@ export default function ProductDetail() {
               </a>
             </div>
           </div>
+
+          {relatedProducts.length > 0 && (
+            <section className="mt-20">
+              <h2 className="text-2xl font-semibold tracking-tight text-charcoal">
+                Benzer Ürünler
+              </h2>
+              <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                {relatedProducts.map((related) => (
+                  <ProductCard key={related.id} product={related} />
+                ))}
+              </div>
+            </section>
+          )}
         </div>
       </main>
 
