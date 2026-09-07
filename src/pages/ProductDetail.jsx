@@ -61,7 +61,7 @@ export default function ProductDetail() {
       if (bSameSeries !== aSameSeries) return bSameSeries - aSameSeries;
       return (b.salesCount || 0) - (a.salesCount || 0);
     })
-    .slice(0, 4);
+    .slice(0, 12);
 
   return (
     <div className="flex min-h-screen flex-col bg-cream">
@@ -122,9 +122,11 @@ export default function ProductDetail() {
               <h2 className="text-2xl font-semibold tracking-tight text-charcoal">
                 Benzer Ürünler
               </h2>
-              <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="mt-8 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
                 {relatedProducts.map((related) => (
-                  <ProductCard key={related.id} product={related} />
+                  <div key={related.id} className="w-72 flex-shrink-0 snap-start sm:w-80">
+                    <ProductCard product={related} />
+                  </div>
                 ))}
               </div>
             </section>

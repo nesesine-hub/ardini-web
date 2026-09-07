@@ -21,6 +21,14 @@ export default function Footer() {
             <a href="#iletisim" className="transition-colors hover:text-charcoal">
               İletişim
             </a>
+            <a
+              href="https://linktr.ee/bayarltd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-charcoal"
+            >
+              Tüm Bağlantılarımız
+            </a>
             <Link to="/admin-login" className="transition-colors hover:text-charcoal">
               Yönetici Girişi
             </Link>
