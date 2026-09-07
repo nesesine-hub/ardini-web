@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import ProductCard from "../components/ProductCard";
+import ContactSection from "../components/ContactSection";
 import FirebaseSetupNotice from "../components/FirebaseSetupNotice";
 import { subscribeToCategories, subscribeToProducts } from "../firebase/products";
 import { isFirebaseConfigured } from "../firebase/config";
@@ -21,7 +22,12 @@ export default function Home() {
     };
   }, []);
 
-  const featuredProducts = products.slice(0, 4);
+  const withImages = products.filter((p) => p.imageUrl);
+  const bestsellers = withImages.filter((p) => p.isBestseller);
+  const featuredProducts = (bestsellers.length > 0 ? bestsellers : withImages).slice(0, 4);
+  const carouselImages = (bestsellers.length > 0 ? bestsellers : withImages)
+    .slice(0, 6)
+    .map((p) => ({ src: p.imageUrl, alt: p.name }));
 
   return (
     <div className="flex min-h-screen flex-col bg-cream">
@@ -29,7 +35,7 @@ export default function Home() {
       <Header />
 
       <main className="flex-1">
-        <Hero />
+        <Hero carouselImages={carouselImages} />
 
         {categories.length > 0 && (
           <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
@@ -75,6 +81,8 @@ export default function Home() {
             </div>
           </section>
         )}
+
+        <ContactSection />
       </main>
 
       <Footer />

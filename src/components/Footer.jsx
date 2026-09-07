@@ -6,10 +6,10 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-10">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
-            <Link to="/" className="text-xl font-semibold tracking-tight text-charcoal">
-              ARDINI
+            <Link to="/">
+              <img src="./logo.png" alt="Ardini" className="h-10 w-auto" />
             </Link>
-            <p className="mt-2 max-w-sm text-sm text-gray-500">
+            <p className="mt-3 max-w-sm text-sm text-gray-500">
               Banyo, mutfak ve yapı & hırdavat kategorilerinde özenle seçilmiş
               ürünlerin premium kataloğu.
             </p>
@@ -18,13 +18,23 @@ export default function Footer() {
             <Link to="/katalog" className="transition-colors hover:text-charcoal">
               Katalog
             </Link>
+            <a href="#iletisim" className="transition-colors hover:text-charcoal">
+              İletişim
+            </a>
             <Link to="/admin-login" className="transition-colors hover:text-charcoal">
               Yönetici Girişi
             </Link>
           </nav>
         </div>
-        <p className="mt-10 text-xs text-gray-400">
-          © {new Date().getFullYear()} Ardini. Tüm hakları saklıdır.
+        <div className="mt-8 flex flex-col gap-1 border-t border-black/5 pt-8 text-sm text-gray-500 sm:flex-row sm:gap-6">
+          <a href="tel:+905493300900" className="transition-colors hover:text-charcoal">
+            0549 330 09 00
+          </a>
+          <span className="hidden sm:inline">·</span>
+          <span>Bayar Plaza, Şeyh Sinan, İbrişim Sk., 59850 Çorlu/Tekirdağ</span>
+        </div>
+        <p className="mt-6 text-xs text-gray-400">
+          © {new Date().getFullYear()} Ardini — Bayar Ticari Yatırımlar Yapı Turizm Kimya San. ve Tic. Ltd. Şti. Tüm hakları saklıdır.
         </p>
       </div>
     </footer>

@@ -10,6 +10,13 @@
   --color-navy-light: #12294f;
   --color-emerald: #0f6e5c;
   --color-emerald-light: #14876f;
+
+  --color-coral: #e8603c;
+  --color-coral-light: #f2825f;
+  --color-gold: #c8902a;
+  --color-gold-light: #e0ab4a;
+  --color-sky: #2563a8;
+  --color-sky-light: #3f7fc4;
 }
 
 html {

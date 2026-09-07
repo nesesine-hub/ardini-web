@@ -1,7 +1,14 @@
+import { categoryBadgeClass } from "../utils/categoryColors";
+
 export default function ProductCard({ product }) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-      <div className="aspect-[4/5] w-full overflow-hidden bg-cream-dark">
+      <div className="relative aspect-[4/5] w-full overflow-hidden bg-cream-dark">
+        {product.isBestseller && (
+          <span className="absolute left-3 top-3 z-10 rounded-full bg-coral px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white shadow-sm">
+            Çok Satan
+          </span>
+        )}
         {product.imageUrl ? (
           <img
             src={product.imageUrl}
@@ -19,7 +26,9 @@ export default function ProductCard({ product }) {
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <span className="text-xs font-semibold uppercase tracking-wide text-emerald">
+        <span
+          className={`inline-flex w-fit items-center rounded-full px-2.5 py-1 text-xs font-semibold uppercase tracking-wide ${categoryBadgeClass(product.category)}`}
+        >
           {product.category}
         </span>
         <h3 className="mt-2 text-lg font-semibold text-charcoal">
