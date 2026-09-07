@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ImageGallery from "../components/ImageGallery";
-import ProductCard from "../components/ProductCard";
+import ProductCarouselRow from "../components/ProductCarouselRow";
 import { categoryBadgeClass } from "../utils/categoryColors";
 import { subscribeToProduct, subscribeToProducts } from "../firebase/products";
 
@@ -122,12 +122,8 @@ export default function ProductDetail() {
               <h2 className="text-2xl font-semibold tracking-tight text-charcoal">
                 Benzer Ürünler
               </h2>
-              <div className="mt-8 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
-                {relatedProducts.map((related) => (
-                  <div key={related.id} className="w-72 flex-shrink-0 snap-start sm:w-80">
-                    <ProductCard product={related} />
-                  </div>
-                ))}
+              <div className="mt-8">
+                <ProductCarouselRow products={relatedProducts} />
               </div>
             </section>
           )}
